@@ -1,0 +1,67 @@
+﻿@model IEnumerable<otomoi.Models.baiviet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="container">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.loaibaiviet.ten)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tieude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.noidung)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.anh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.thoigian)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tomtat)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.loaibaiviet.ten)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tieude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.noidung)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.anh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.thoigian)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tomtat)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ma }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ma }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ma })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

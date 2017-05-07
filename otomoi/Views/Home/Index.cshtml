@@ -1,0 +1,45 @@
+﻿@using otomoi.Models;
+@model IEnumerable<baiviet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div id="container">
+
+    <!-- tab panes -->
+    <div id="prod_wrapper">
+        <div id="panes">
+
+
+            @foreach (baiviet item in Model)
+            {
+                <div>
+                    <img src="~/Content/img/@item.anh" alt="">
+                    <h2>@item.tieude</h2>
+                    <p>@item.tomtat </p>
+                    <p style="text-align:right; margin-right: 16px"> @Html.ActionLink("Xem thêm", "Details", "BaiViet", new { id = item.ma }, null) </p>
+                </div>
+
+            }
+        </div>
+
+        <!-- END tab panes -->
+        <br clear="all">
+        <!-- navigator -->
+        <div id="prod_nav">
+            <ul>
+                @foreach (baiviet item in Model)
+                {
+                    <li><a href="#1"><img src="~/Content/img/@item.anh" width="160" alt=""><strong>@item.tieude</strong></a></li>
+                }
+            </ul>
+        </div>
+        <!-- END navigator -->
+    </div>
+    <!-- END prod wrapper -->
+    <div style="clear:both"></div>
+</div>
